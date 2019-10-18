@@ -17,8 +17,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 Make sure your api is working . check env files
 
 `export const environment = {
-   baseUrl : 'http://localhost:8080/api/',` 
-
+   baseUrl : 'http://localhost:8080/api/', 
+   ..
+  }
+`
 also update firebase apiKey and other details
 `firebase: {
      apiKey: 'yourKey',
@@ -30,3 +32,5 @@ also update firebase apiKey and other details
    }`
 
 
+#### Watch Courses
+[![video](https://youtu.be/8FBsvpHUsxA)](https://youtu.be/8FBsvpHUsxA)
