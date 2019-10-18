@@ -1,0 +1,39 @@
+.top-img {
+  width: 3em;
+  padding-top: 0.5%;
+  padding-left: 5px;
+  height: 25px;
+  width: 25px;
+}
+
+.app-menu-btn {
+  padding-left: 8%
+}
+
+.app-text {
+  padding-left: 1.5%
+}
+
+.app-content {
+  margin-top: 60px !important;
+}
+
+.rounded-circle {
+  max-width: 150px;
+}
+.rounded-circle {
+  max-width: 150px;
+  margin: 0 auto 20px !important;
+  display: block;
+}
+
+h3, h4, strong, button, b, .bold{
+  font-family: Akzidenz Grotesk BQ Medium,Helvetica,Arial;
+  font-weight: 300;
+}
+.fl-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}

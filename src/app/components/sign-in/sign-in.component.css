@@ -1,0 +1,17 @@
+.mainContent{
+  padding: 10% !important;
+}
+.fill{
+  background: #e9faff;
+}
+.btn-white{
+  -webkit-appearance:none;
+}
+.btn-white:hover{
+  border: 1px solid #13aa52;
+
+}
+.googleBtn {
+  color: #fff;
+  background: #eb5e4c;
+}

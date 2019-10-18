@@ -1,0 +1,16 @@
+html, body {
+  height: 100%;
+}
+
+.full-height {
+  height: 100%;
+  background-image: url("/assets/img/map.png");
+
+}
+
+.full-height:hover {
+  height: 100%;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

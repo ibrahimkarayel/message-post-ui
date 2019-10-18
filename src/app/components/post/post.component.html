@@ -1,0 +1,85 @@
+<div class="container mt-5 pb-5">
+
+  <div class="row mb-5">
+    <div class="col-md-2">
+      <button aria-hidden="true" type="button" class="btn btn-xs offset-1 ml-1" (click)="savePost(newPost)"
+              title="Edit">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div *ngFor="let post of postResult" class="detailBox col-md-10">
+    <div class="pt-2 pb-1">
+      <div class="row">
+        <div class="col-md-8"><strong>{{post.subject}}</strong></div>
+        <div class="col-md-4 d-flex justify-content-end" *ngIf="post.author.uid===user.uid">
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="removePost(post)">
+              <mat-icon color="accent">delete</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button mat-menu-item (click)="editPost(post)">
+              <mat-icon color="primary">edit</mat-icon>
+              <span>Edit</span>
+            </button>
+          </mat-menu>
+        </div>
+      </div>
+    </div>
+    <div class="commentBox">
+      <div class="col-md-2">
+        <img class="authorImage mr-2 rounded-circle"
+             src="{{(post.author.photoURL) ? post.author.photoURL : '/assets/dummy-user.png'}}">
+      </div>
+      <div class="col-md-10">
+        <p class="taskDescription row ml-3">{{post.content}} <span class="sub-text">&nbsp;&nbsp;on {{post.creationDate | date: 'dd/MM/yyyy'}}</span></p>
+      </div>
+    </div>
+    <div class="actionBox">
+      <ul class="commentList" *ngFor="let comment of post.comments">
+        <li class="pt-1">
+          <div class="commenterImage">
+            <img src="{{(comment.author.photoURL) ? comment.author.photoURL : '/assets/dummy-user.png'}}">
+          </div>
+          <!--    <div class="mr-5 d-flex justify-content-end">
+                <button mat-icon-button [matMenuTriggerFor]="menuComment">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menuComment="matMenu">
+                  <button mat-menu-item (click)="removeComment(comment, post.postId)">
+                    <mat-icon color="accent">delete</mat-icon>
+                    <span>Delete</span>
+                  </button>
+                </mat-menu>
+              </div>-->
+          <div class="commentText">
+            <p> {{comment.content}}</p>
+            <span
+            class="date sub-text">on {{comment.creationDate | date: 'dd/MM/yyyy'}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="actionBox">
+      <form #myform="ngForm" class="com-md-12 form-inline col-md-10">
+        <div class="form-group">
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Your comments" name="message" ngModel
+                   required>
+          </mat-form-field>
+          <input type="hidden" ngModel="{{post.postId}}" name="postId"/>
+        </div>
+        <div class="form-group left">
+          <button class="col-sm-12" type="button" c mat-raised-button color="primary"
+                  (click)="saveComment(myform)"
+                  [disabled]="!myform.valid" class="float-left">Add
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="row">
+  <mat-toolbar>
+    <div class="col-md-10">
+      <img src="/assets/img/logo.jpg" class="top-img" alt="logo">
+      <span class="app-text">Post Message Application</span>
+    </div>
+    <div class="col-md-2 flex-column-reverse">
+      <mat-icon class="mat-button mt-1 fl-center h3" (click)="authService.SignOut()">logout</mat-icon>
+    </div>
+  </mat-toolbar>
+
+  <mat-tab-group class="container text-center mt-5">
+    <mat-tab label="My Posts" class="container-fluid">
+      <app-posts></app-posts>
+    </mat-tab>
+    <mat-tab label="Profile">
+      <div class="container">
+        <div class="row col-md-6">
+          <div class="inner-adjust">
+            <div class="pt-3 pb-2 mb-3 border-bottom">
+              <h1 class="h6">User Profile</h1>
+            </div>
+            <!-- Show user data when logged in -->
+            <div class="row" *ngIf="authService.userData as user">
+              <div class="col-md-12">
+                <div class="media">
+                  <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+                       src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}"
+                       alt="{{user.displayName}}">
+                  <div class="media-body">
+                    <h6>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h6>
+                    <!-- <p>User ID: <strong>{{user.uid}}</strong></p>-->
+                    <p>Email: <strong>{{user.email}}</strong></p>
+                    <!-- <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>-->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <iframe style="border: none;border-radius: 2px;box-shadow: 0 2px 10px 0 rgba(70, 76, 79, .2);"
+                  width="640" height="480"
+                  src="https://charts.mongodb.com/charts-project-0-giztb/embed/charts?id=c436bd19-adde-4e16-85a3-5d4e5f03da00&tenant=7a407f04-83bb-483c-a1a3-657149f53dcb">
+          </iframe>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<!-- Footer -->
+<div class="text-center" style="align-self: flex-end"><!--class="fixed-bottom"-->
+  <footer class="card-footer">
+    <div class="footer-copyright ">© 2019 Copyright by
+      <a>ikarayel</a>
+    </div>
+  </footer>
+  <!-- Footer -->
+</div>

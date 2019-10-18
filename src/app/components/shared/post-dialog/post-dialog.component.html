@@ -1,0 +1,19 @@
+<div class="container-fluid dialog-main">
+  <h2 mat-dialog-title>{{title}}</h2>
+  <mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+      <input matInput placeholder="Subject" formControlName="subject">
+    </mat-form-field>
+    <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="content">
+        </textarea>
+    </mat-form-field>
+    <input type="hidden" formControlName="postId"/>
+    <input type="hidden" formControlName="author"/>
+    <input type="hidden" formControlName="isUpdate"/>
+  </mat-dialog-content>
+  <mat-dialog-actions class="d-flex justify-content-end">
+    <button mat-raised-button (click)="close()">Close</button>
+    <button mat-raised-button color="primary" [disabled]="!form.valid" (click)="saveOrUpdate()">Save</button>
+  </mat-dialog-actions>
+</div>
