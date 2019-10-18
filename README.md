@@ -11,16 +11,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
 
-
 ## Pre Requisites
 
 Make sure your api is working . check env files
-
-`export const environment = {
-   baseUrl : 'http://localhost:8080/api/', 
-   ..
-  }
-`
+    
+    export const environment = {
+       baseUrl : 'http://localhost:8080/api/', 
+       ..
+      }
+      
 also update firebase apiKey and other details
   
     firebase: {
@@ -33,6 +32,7 @@ also update firebase apiKey and other details
     }
     
 #Docker
+
 docker build -t message-post .
 docker run -p 80:80 -p 443:443 -it message-post
 
