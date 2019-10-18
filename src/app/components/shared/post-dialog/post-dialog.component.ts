@@ -20,7 +20,11 @@ export class PostDialogComponent implements OnInit {
     private dialogRef: MatDialogRef<PostDialogComponent>, private postService: PostService,
     @Inject(MAT_DIALOG_DATA) {postId, author, subject, content, isUpdate}: Post) {
 
-    this.title = 'Edit Post';
+    if (postId != null) {
+      this.title = 'Edit Post';
+    } else {
+      this.title = 'Add Post';
+    }
 
     this.form = fb.group({
       subject: [subject, Validators.required],

@@ -41,9 +41,7 @@ export class PostComponent implements OnInit {
 
   getAllPost() {
     this.postService.getAllPosts().subscribe((posts: Post[]) => {
-        if (posts) {
-          this.postResult = posts;
-        }
+        this.postResult = posts;
       },
       error => {
         alert('Error');
@@ -65,9 +63,8 @@ export class PostComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(PostDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((post: Post) => {
-        console.log('Dialog output:', post);
         if (post) {
-          this.postResult.push(post);
+          this.postResult.unshift(post);
         }
       },
       error => {
@@ -85,10 +82,10 @@ export class PostComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(PostDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe((resultPost: Post) => {
-        if (resultPost) {
-          const index = this.postResult.findIndex(value => value.postId === resultPost.postId);
-          this.postResult[index] = resultPost;
+    dialogRef.afterClosed().subscribe((editedPost: Post) => {
+        if (editedPost) {
+          const index = this.postResult.findIndex(value => value.postId === editedPost.postId);
+          this.postResult[index] = editedPost;
         }
       },
       error => {
@@ -104,14 +101,12 @@ export class PostComponent implements OnInit {
     dialogConfig.data = {
       post
     };
-    const dialogRef = this.dialog.open(ConfirmationDialogComponent,
-      dialogConfig);
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, dialogConfig);
     dialogRef.afterClosed().subscribe((postId: any) => {
         console.log('Dialog output postId:', postId);
         if (postId) {
           const index = this.postResult.findIndex(value => value.postId === postId);
           this.postResult.splice(index, 1);
-          console.log(this.postResult);
         }
       },
       error => {
@@ -122,8 +117,8 @@ export class PostComponent implements OnInit {
 
   saveComment(myForm: NgForm) {
     console.log(JSON.stringify(myForm.value));
-    const postId = myForm.value['postId'];
-    const message = myForm.value['message'];
+    const postId = myForm.value.postId;
+    const message = myForm.value.message;
     if (myForm.valid) {
       this.postService.saveComment(new PostComment(postId, this.user, message)).subscribe((post: Post) => {
           console.log(JSON.stringify(post));

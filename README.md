@@ -22,15 +22,20 @@ Make sure your api is working . check env files
   }
 `
 also update firebase apiKey and other details
-`firebase: {
-     apiKey: 'yourKey',
-     authDomain: 'your-app-name.firebaseapp.com',
-     databaseURL: 'https://your-app-name.firebaseio.com',
-     projectId: 'your-app-name',
-     storageBucket: 'your-app-name.appspot.com',
-     messagingSenderId: 'id'
-   }`
+  
+    firebase: {
+      apiKey: 'yourKey',
+      authDomain: 'your-app-name.firebaseapp.com',
+      databaseURL: 'https://your-app-name.firebaseio.com',
+      projectId: 'your-app-name',
+      storageBucket: 'your-app-name.appspot.com',
+      messagingSenderId: 'id'
+    }
+    
+#Docker
+docker build -t message-post .
+docker run -p 80:80 -p 443:443 -it message-post
 
 
 #### Watch Courses
-[![video](https://youtu.be/8FBsvpHUsxA)](https://youtu.be/8FBsvpHUsxA)
+[![course_video](https://youtu.be/8FBsvpHUsxA)](https://youtu.be/8FBsvpHUsxA)
