@@ -38,7 +38,7 @@ docker run -p 80:80 -p 443:443 -it message-post
 
 
 #### Watch Courses
-[![course video](https://i9.ytimg.com/vi/8FBsvpHUsxA/mq1.jpg?sqp=CN_aqO0F&rs=AOn4CLBuLvRJL1RSrGJxz2lDQ6WESU0LKQ)](https://youtu.be/8FBsvpHUsxA)
+[![course video](https://img.youtube.com/vi/8FBsvpHUsxA/0.jpg)](https://youtu.be/8FBsvpHUsxA)
 
 
 [ibrahim karayel](https://www.linkedin.com/in/ibrahimkarayel/)
